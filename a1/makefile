@@ -25,7 +25,7 @@ else
 	endif
 endif
 
-PROGRAM_NAME= Assignment 1
+PROGRAM_NAME= Paint.x
 
 #run target to compile and build, and then launch the executable
 run: $(PROGRAM_NAME)

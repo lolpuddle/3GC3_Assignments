@@ -2,27 +2,57 @@
 void menu(int value){
 
     switch(value) {
-        case 1 : printf("Red\n");
+        case 1 :
+            brush.r = 1.0;
+            brush.g = 0.0;
+            brush.b = 0.0;
             break;
-        case 2 : printf("Blue\n");
+        case 2 :
+            brush.r = 0.0;
+            brush.g = 0.0;
+            brush.b = 1.0;
             break;
-        case 3 : printf("Green\n");
+        case 3 :
+            brush.r = 0.0;
+            brush.g = 1.0;
+            brush.b = 0.0;
             break;
-        case 4 : printf("Purple\n");
+        case 4 :
+            brush.r = 1.0;
+            brush.g = 0.0;
+            brush.b = 1.0;
             break;
-        case 5 : printf("Yellow\n");
+        case 5 :
+            brush.r = 1.0;
+            brush.g = 1.0;
+            brush.b = 0.0;
             break;
-        case 6 : printf("Random\n");
+        case 6 :
+            // brush.r = ((float) rand() / (RAND_MAX));
+            // brush.g = ((float) rand() / (RAND_MAX));
+            // brush.b = ((float) rand() / (RAND_MAX));
+            // brush.r = rand()/((float)RAND_MAX+1);
+            // brush.g = rand()/((float)RAND_MAX+1);
+            // brush.b = rand()/((float)RAND_MAX+1);
+            // printf("%lf\n", brush.r);
+            // printf("%lf\n", brush.g);
+            // printf("%lf\n", brush.b);
+
             break;
         case 7 : printf("Point\n");
+            brush.brushType = 1;
             break;
         case 8 : printf("Line\n");
+            brush.brushType = 2;
             break;
         case 9 : printf("Rectangle\n");
+            brush.brushType = 3;
             break;
         case 10 : printf("Circle\n");
+            brush.brushType = 4;
             break;
         case 11 : printf("Radial\n");
+            brush.brushType = 5;
             break;
         case 12 : printf("Clear\n");
             break;
@@ -30,7 +60,6 @@ void menu(int value){
             break;
     }
 }
-
 
 void createMenu() {
 
