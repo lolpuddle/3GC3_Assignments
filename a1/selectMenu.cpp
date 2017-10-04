@@ -12,15 +12,21 @@ void menu(int value){
             break;
         case 5 : printf("Yellow\n");
             break;
-        case 6 : printf("Point\n");
+        case 6 : printf("Random\n");
             break;
-        case 7 : printf("Line\n");
+        case 7 : printf("Point\n");
             break;
-        case 8 : printf("Rectangle\n");
+        case 8 : printf("Line\n");
             break;
-        case 9 : printf("Circle\n");
+        case 9 : printf("Rectangle\n");
             break;
-        case 10 : exit(0); //exit
+        case 10 : printf("Circle\n");
+            break;
+        case 11 : printf("Radial\n");
+            break;
+        case 12 : printf("Clear\n");
+            break;
+        case 13 : exit(0); //exit
             break;
     }
 }
@@ -34,17 +40,20 @@ void createMenu() {
     glutAddMenuEntry("Green", 3);
     glutAddMenuEntry("Purple", 4);
     glutAddMenuEntry("Yellow", 5);
+    glutAddMenuEntry("Random", 6);
 
     int shapeMenu = glutCreateMenu(menu);
-    glutAddMenuEntry("Point", 6);
-    glutAddMenuEntry("Line", 7);
-    glutAddMenuEntry("Rectangle", 8);
-    glutAddMenuEntry("Circle", 9);
+    glutAddMenuEntry("Point", 7);
+    glutAddMenuEntry("Line", 8);
+    glutAddMenuEntry("Rectangle", 9);
+    glutAddMenuEntry("Circle", 10);
+    glutAddMenuEntry("Radial", 11);
 
     int mainMenu = glutCreateMenu(menu);
     glutAddSubMenu("Colour", colourMenu);
     glutAddSubMenu("Shape", shapeMenu);
-    glutAddMenuEntry("Quit", 10);
+    glutAddMenuEntry("Clear", 12);
+    glutAddMenuEntry("Quit", 13);
 
     glutAttachMenu(GLUT_RIGHT_BUTTON);
 }
