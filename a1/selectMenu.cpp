@@ -33,22 +33,22 @@ void menu(int value){
             brush.g = ((float) rand() / (RAND_MAX));
             brush.b = ((float) rand() / (RAND_MAX));
             break;
-        case 7 : printf("Point\n");
+        case 7 :
             brush.brushType = 1;
             break;
-        case 8 : printf("Line\n");
+        case 8 :
             brush.brushType = 2;
             break;
-        case 9 : printf("Rectangle\n");
+        case 9 : 
             brush.brushType = 3;
             break;
-        case 10 : printf("Circle\n");
+        case 10 :
             brush.brushType = 4;
             break;
-        case 11 : printf("Radial\n");
+        case 11 :
             brush.brushType = 5;
             break;
-        case 12 : printf("Clear\n");
+        case 12 :
             points.clear();
             break;
         case 13 : exit(0); //exit

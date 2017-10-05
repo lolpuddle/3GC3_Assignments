@@ -30,6 +30,24 @@ void keyboard(unsigned char key, int xIn, int yIn) {
 		case 27:	//27 is the esc key
 			exit(0);
 			break;
+		case 'w':
+			brush.brushType = 1;
+			break;
+		case 'e':
+			brush.brushType = 2;
+			break;
+		case 'r':
+			brush.brushType = 3;
+			break;
+		case 't':
+			brush.brushType = 4;
+			break;
+		case 'y':
+			brush.brushType = 5;
+			break;
+		case 'c':
+			points.clear();
+			break;
 	}
 }
 
@@ -86,6 +104,15 @@ int main(int argc, char** argv) {
 
 	glutTimerFunc(17, FPSTimer, 0);
 	init();
+
+	printf("Press q to exit the program\n");
+	printf("Press w to use the point tool. You can draw individual points or hold the mouse to draw multiple points at once. \n");
+	printf("Press e to use the line tool. The first click will specify a start point, and the second click will specify the end point. \n");
+	printf("Press r to use the rectangle tool. The first click will specify the first corner, and the second click will specify the opposite corner. \n");
+	printf("Press t to use the circle tool. The first click will specify the middle of the circle, and the second click will be the edge. \n");
+	printf("Press y to use the radial brush. Have fun. \n");
+	printf("Press c to clear the paint drawing\n");
+	printf("Right click inside the program window to access the options to change colour and brushes\n");
 
 	glutMainLoop();
 	return(0);

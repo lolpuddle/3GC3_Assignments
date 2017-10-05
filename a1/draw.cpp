@@ -1,8 +1,11 @@
+#define _USE_MATH_DEFINES
 #include <math.h>
 
 int first_x;
 int first_y;
 bool firstClick = true;
+int width;
+int height;
 
 void drawPoint(int x, int y) {
     Point point;
@@ -109,9 +112,9 @@ void drawLine(int x, int y, int x2, int y2) {
     } 
     for (int x3 = x; x3 < x2; x3++) {
         if (steepSlope) {
-            drawPoint(y3, glutGet(GLUT_WINDOW_HEIGHT) - x3);
+            drawPoint(y3, height - x3);
         } else {
-            drawPoint(x3, glutGet(GLUT_WINDOW_HEIGHT) - y3);
+            drawPoint(x3, height - y3);
         }
         err -= dy;
         if (err < 0) {
@@ -139,7 +142,7 @@ void drawRectangle(int x, int y, int x2, int y2) {
     while (startY <= endY) {
         int countX = originalX;
         while (countX <= endX) {
-            drawPoint(countX, glutGet(GLUT_WINDOW_HEIGHT) - startY);
+            drawPoint(countX, height - startY);
             countX++;
         }
         startX++;
@@ -160,14 +163,14 @@ void drawCircle(int x, int y, int x2, int y2) {
     int re = 0;
 
     while (x3 >= y3) {
-        drawPoint(x + x3, glutGet(GLUT_WINDOW_HEIGHT) - y - y3);
-        drawPoint(x - x3, glutGet(GLUT_WINDOW_HEIGHT) - y - y3);
-        drawPoint(x - x3, glutGet(GLUT_WINDOW_HEIGHT) - y + y3);
-        drawPoint(x + x3, glutGet(GLUT_WINDOW_HEIGHT) - y + y3);
-        drawPoint(x + y3, glutGet(GLUT_WINDOW_HEIGHT) - y - x3);
-        drawPoint(x - y3, glutGet(GLUT_WINDOW_HEIGHT) - y - x3);
-        drawPoint(x - y3, glutGet(GLUT_WINDOW_HEIGHT) - y + x3);   
-        drawPoint(x + y3, glutGet(GLUT_WINDOW_HEIGHT) - y + x3);
+        drawPoint(x + x3, height - y - y3);
+        drawPoint(x - x3, height - y - y3);
+        drawPoint(x - x3, height - y + y3);
+        drawPoint(x + x3, height - y + y3);
+        drawPoint(x + y3, height - y - x3);
+        drawPoint(x - y3, height - y - x3);
+        drawPoint(x - y3, height - y + x3);   
+        drawPoint(x + y3, height - y + x3);
         y3++;
         re += dy;
         dy += 2;
@@ -180,18 +183,35 @@ void drawCircle(int x, int y, int x2, int y2) {
 }
 
 void drawRadial(int x, int y) {
+    int mid_x = width/2;
+    int mid_y = height/2;
+    int r = (int) sqrt(pow((double) (mid_y - y), 2.0) + pow((double) (mid_x - x), 2.0));
+    int repeat = 16;
+    float radsPerPoint = (2 * M_PI) / repeat;
+    float dy = abs(y - mid_y);
+    float dx = abs(x - mid_x);
+    float offset = dy/dx;
+
+    drawPoint(x, height - y);
     
+    for (int i = 1; i < repeat; i++) {
+        int y2 = mid_y + sin(radsPerPoint*i + offset)*r;
+        int x2 = mid_x + cos(radsPerPoint*i + offset)*r;
+        drawPoint(x2, y2);
+    }
 }
 
 void mouse(int btn, int state, int x, int y) {
+    height = glutGet(GLUT_WINDOW_HEIGHT);
+    width = glutGet(GLUT_WINDOW_WIDTH);
     if (brush.brushType == 1) {
-        drawPoint(x, glutGet(GLUT_WINDOW_HEIGHT) - y);
-    } else if (brush.brushType == 5) (
+        drawPoint(x, height - y);
+    } else if (brush.brushType == 5) {
         drawRadial(x, y);
-    )
+    }
     if(btn == GLUT_LEFT_BUTTON) {
         if(state == GLUT_DOWN) {
-            if (firstClick) {
+            if (firstClick && brush.brushType != 1) {
                 first_x = x;
                 first_y = y;
                 firstClick = false;
@@ -215,7 +235,7 @@ void mouse(int btn, int state, int x, int y) {
 
 void mouseMotion(int x, int y) {
     if (brush.brushType == 1) {
-        drawPoint(x, glutGet(GLUT_WINDOW_HEIGHT) - y);
+        drawPoint(x, height - y);
     } else if (brush.brushType == 5) {
         drawRadial(x, y);
     }
