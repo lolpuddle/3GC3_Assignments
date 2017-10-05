@@ -18,9 +18,8 @@
 #  include <GL/freeglut.h>
 #endif
 
-#include "commons.cpp"
-
-#include "mouseActions.cpp"
+#include "objects.cpp"
+#include "draw.cpp"
 #include "selectMenu.cpp"
 
 //OpenGL functions
@@ -72,9 +71,9 @@ int main(int argc, char** argv) {
 	glutInitWindowSize(500, 500);
 	glutInitWindowPosition(50, 50);
 
-	glutCreateWindow("Assignment 1");	//creates the window
+	glutCreateWindow("Assignment 1");
 
-	glutDisplayFunc(display);	//registers "display" as the display callback function
+	glutDisplayFunc(display);
 
 	// keyboard callbacks
 	glutKeyboardFunc(keyboard);
@@ -82,13 +81,12 @@ int main(int argc, char** argv) {
 	// mouse callbacks
 	glutMouseFunc(mouse);
 	glutMotionFunc(mouseMotion);
-	glutPassiveMotionFunc(mousePassiveMotion);
 
 	createMenu();
 
 	glutTimerFunc(17, FPSTimer, 0);
 	init();
 
-	glutMainLoop();				//starts the event glutMainLoop
+	glutMainLoop();
 	return(0);
 }

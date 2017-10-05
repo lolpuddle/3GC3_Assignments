@@ -28,6 +28,7 @@ void menu(int value){
             brush.b = 0.0;
             break;
         case 6 :
+            srand(time(NULL));
             brush.r = ((float) rand() / (RAND_MAX));
             brush.g = ((float) rand() / (RAND_MAX));
             brush.b = ((float) rand() / (RAND_MAX));
