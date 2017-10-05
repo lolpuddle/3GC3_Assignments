@@ -17,67 +17,6 @@ void drawPoint(int x, int y) {
     points.push_back(point);
 }
 
-// void drawLineUp(int x, int y, int x2, int y2) {
-//     int dx = abs(x2 - x); int dy = abs(y2 - y);
-//     int d = 2*dy - dx;
-//     int incrE = dy*2;
-//     int incrNE = dy*2 - dx*2;
-//     drawPoint(x, glutGet(GLUT_WINDOW_HEIGHT) - y);
-
-//     while((x < x2) && (y < y2)) {
-//         if (d > 0) {
-//             d += incrE;
-//             x++;
-//         } else {
-//             d += incrNE;
-//             x++;
-//             y--;
-//         }
-//         drawPoint(x, glutGet(GLUT_WINDOW_HEIGHT) - y);
-//     }
-// }
-
-// void drawLineDown(int x, int y, int x2, int y2) {
-//     int dx = x2 - x; int dy = y2 - y;
-//     int d = 2*dy - dx;
-//     int incrE = dy*2;
-//     int incrSE = dy*2 - dx*2;
-//     drawPoint(x, glutGet(GLUT_WINDOW_HEIGHT) - y);
-
-//     while(x < x2) {
-//         if (d <= 0) {
-//             d += incrE;
-//             x++;
-//         } else {
-//             d += incrSE;
-//             x++;
-//             y++;
-//         }
-//         drawPoint(x, glutGet(GLUT_WINDOW_HEIGHT) - y);
-//     }
-// }
-
-// void drawLine( int x, int y, int x2, int y2) {
-//     int point1_x = x;
-//     int point1_y = y;
-//     int point2_x = x2;
-//     int point2_y = y2;
-    
-//     if (x > x2) {
-//         point1_x = x2;
-//         point1_y = y2;
-//         point2_x = x;
-//         point2_y = y;
-//     }
-
-//     if (point1_y > point2_y) {
-//         drawLineUp(point1_x, point1_y, point2_x, point2_y);
-//     } else {
-//         drawLineDown(point1_x, point1_y, point2_x, point2_y);
-//     }
-// }
-
-
 // Found pseudocode explanation online in "Optimization" section
 // Of the page below:
 // http://dictionnaire.sensagent.leparisien.fr/Bresenham's%20algorithm/en-en/

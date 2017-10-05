@@ -31,12 +31,15 @@ PROGRAM_NAME= Paint.x
 run: $(PROGRAM_NAME)
 	./$(PROGRAM_NAME)$(EXEEXT)
 
+paint: $(PROGRAM_NAME)
+	./$(PROGRAM_NAME)$(EXEEXT)	
+
 #when adding additional source files, such as boilerplateClass.cpp
 #or yourFile.cpp, add the filename with an object extension below
 #ie. boilerplateClass.o and yourFile.o
 #make will automatically know that the objectfile needs to be compiled
 #form a cpp source file and find it itself :)
-$(PROGRAM_NAME): main.o boilerplateClass.o
+$(PROGRAM_NAME): main.o
 	$(CC) -o $@ $^ $(CFLAGS) $(LDFLAGS)
 
 clean:
