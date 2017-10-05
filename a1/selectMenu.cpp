@@ -28,16 +28,9 @@ void menu(int value){
             brush.b = 0.0;
             break;
         case 6 :
-            // brush.r = ((float) rand() / (RAND_MAX));
-            // brush.g = ((float) rand() / (RAND_MAX));
-            // brush.b = ((float) rand() / (RAND_MAX));
-            // brush.r = rand()/((float)RAND_MAX+1);
-            // brush.g = rand()/((float)RAND_MAX+1);
-            // brush.b = rand()/((float)RAND_MAX+1);
-            // printf("%lf\n", brush.r);
-            // printf("%lf\n", brush.g);
-            // printf("%lf\n", brush.b);
-
+            brush.r = ((float) rand() / (RAND_MAX));
+            brush.g = ((float) rand() / (RAND_MAX));
+            brush.b = ((float) rand() / (RAND_MAX));
             break;
         case 7 : printf("Point\n");
             brush.brushType = 1;
@@ -55,6 +48,7 @@ void menu(int value){
             brush.brushType = 5;
             break;
         case 12 : printf("Clear\n");
+            points.clear();
             break;
         case 13 : exit(0); //exit
             break;

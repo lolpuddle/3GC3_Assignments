@@ -40,9 +40,7 @@ void init(void) {
 }
 
 void display(void) {
-	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
-
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -55,7 +53,7 @@ void display(void) {
 		glBegin(GL_POINTS);
 		glColor3f(i.r, i.g, i.b);
 		glVertex2f(i.x, i.y);
-		glEnd();	
+		glEnd();
 	}
 
 	glutSwapBuffers();

@@ -7,18 +7,18 @@
 // Brush Type 5 = Radial
 
 struct Brush { 
-        int brushType = 1;
-        float r = 1.0;
-        float g = 1.0;
-        float b = 1.0;
+    int brushType = 1;
+    float r = 1.0;
+    float g = 1.0;
+    float b = 1.0;
 } brush;
 
 struct Point {
     int x;
     int y;
-    int r;
-    int g;
-    int b;
+    float r;
+    float g;
+    float b;
 };
 
 std::vector<Point> points;
